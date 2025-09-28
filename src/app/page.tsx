@@ -9,6 +9,8 @@ import { TypingAnimation } from "@/components/ui/typing-animation";
 import { MempelaiSection } from "@/components/MempelaiSection";
 import { InvitationSection } from "@/components/InvitationSection";
 import { CountdownSection } from "@/components/CountdownSection";
+import { GallerySection } from "@/components/GallerySection";
+import { ThanksSection } from "@/components/ThanksSection";
 
 const kurale = Kurale({
   weight: ["400"]
@@ -101,6 +103,12 @@ export default function Home() {
 
       {/* Countdown Section */}
       <CountdownSection />
+
+      {/* Gallery Section */}
+      <GallerySection />
+
+      {/* Thanks Section */}
+      <ThanksSection />
     </div>
   );
 }

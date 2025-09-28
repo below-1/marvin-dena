@@ -25,9 +25,6 @@ export function CountdownSection() {
         </div>
       </section> */}
       <CountdownClient />
-      <div className="h-[500px] w-full bg-amber-300">
-
-      </div>
     </>
   )
 }

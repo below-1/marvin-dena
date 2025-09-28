@@ -12,7 +12,7 @@ const TARGET_TIME = new Date(2025, 9, 15, 18, 0, 0)
 export default function CountdownClient() {
   return (
 
-    <ParallaxBanner className="h-200 bg-pink-200 w-screen">
+    <ParallaxBanner className="h-160 bg-pink-200 w-screen">
       <ParallaxBannerLayer className="bg-black/50 absolute inset-0 z-21">
 
       </ParallaxBannerLayer>
