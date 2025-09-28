@@ -11,6 +11,9 @@ import { InvitationSection } from "@/components/InvitationSection";
 import { CountdownSection } from "@/components/CountdownSection";
 import { GallerySection } from "@/components/GallerySection";
 import { ThanksSection } from "@/components/ThanksSection";
+import { MapSection } from "@/components/MapSection";
+import { WeddingAudio } from "@/components/WeddingAudio";
+import { StartAppButton } from "@/components/StartAppButton";
 
 const kurale = Kurale({
   weight: ["400"]
@@ -51,9 +54,7 @@ export default function Home() {
             </div>
             <BlurFade delay={2} duration={1} className="flex items-center justify-center flex-col gap-4 pt-16">
               <p className="text-foreground text-lg text-center">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
-              <Button variant="outline" size="lg" className="uppercase font-mono text-white scale-120">
-                Open Invitation
-              </Button>
+              <StartAppButton />
             </BlurFade>
           </div>
         </div>    
@@ -106,6 +107,9 @@ export default function Home() {
 
       {/* Gallery Section */}
       <GallerySection />
+
+      {/* Map Section */}
+      <MapSection />
 
       {/* Thanks Section */}
       <ThanksSection />
