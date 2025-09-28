@@ -19,14 +19,14 @@ export function MempelaiSection() {
     <div 
       className={twMerge(
         kurale.className,
-        "relative bg-background h-screen max-w-screen flex flex-col py-32"
+        "relative bg-background h-screen max-w-screen flex flex-col py-16 md:py-32 px-4 md:px-0"
       )}
       ref={containerRef}
     >
       {/* <Meteors number={30} /> */}
       <div className="max-w-3xl mx-auto">
 
-        <div className="grid grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
 
           <MempelaiCard
             ref={div1Ref}

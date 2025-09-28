@@ -23,7 +23,7 @@ export function MempelaiCard(props: Props) {
       
     >
       <div 
-        className="relative flex h-64 w-48 overflow-clip rounded-full border-4 border-secondary"
+        className="relative flex h-32 w-24 md:h-64 md:w-48 overflow-clip rounded-full border-4 border-secondary"
         ref={props.ref}
       >
         <Image
@@ -40,12 +40,12 @@ export function MempelaiCard(props: Props) {
       <p 
         className={twMerge(
           engagement.className,
-          "text-secondary text-center text-3xl"
+          "text-secondary text-center text-2xl md:text-3xl"
         )}
       >{props.name}</p>
-      <p className="text-foreground/80 text-center text-base font-sans mb-6">{props.line1}</p>
-      <p className="text-foreground/60 text-center text-sm font-sans leading-4">{props.line2}</p>
-      <p className="text-foreground/60 text-center text-sm font-sans leading-4">{props.line3}</p>
+      <p className="text-foreground/80 text-center text-sm md:text-base font-sans mb-6">{props.line1}</p>
+      <p className="text-foreground/60 text-center text-xs md:text-sm font-sans leading-4">{props.line2}</p>
+      <p className="text-foreground/60 text-center text-xs md:text-sm font-sans leading-4">{props.line3}</p>
     </div>
   )
 }

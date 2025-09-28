@@ -1,6 +1,6 @@
 export function CountdownSection() {
   return (
-    <section id="CountdownSection">
+    <section id="CountdownSection" className="md:h-1/3">
       
     </section>
   )
