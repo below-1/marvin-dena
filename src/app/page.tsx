@@ -52,10 +52,10 @@ export default function Home() {
             <div className="text-foreground text-4xl text-center">
               <TypingAnimation delay={1200} duration={50} startOnView={true}>Special Invitation To Aristop Solle</TypingAnimation>
             </div>
-            <BlurFade delay={2} duration={1} className="flex items-center justify-center flex-col gap-4 pt-16">
-              <p className="text-foreground text-lg text-center">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
-              <StartAppButton />
-            </BlurFade>
+            {/* <BlurFade delay={2} duration={1} className="flex items-center justify-center flex-col gap-4 pt-16">
+            </BlurFade> */}
+            <p className="text-foreground text-lg text-center">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
+            <StartAppButton />
           </div>
         </div>    
       </div>
