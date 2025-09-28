@@ -8,6 +8,7 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { MempelaiSection } from "@/components/MempelaiSection";
 import { InvitationSection } from "@/components/InvitationSection";
+import { CountdownSection } from "@/components/CountdownSection";
 
 const kurale = Kurale({
   weight: ["400"]
@@ -25,7 +26,7 @@ export default function Home() {
       <div className="HeroCover relative h-screen max-w-screen dark">
         <Image
 					alt="MD1"
-					src="/images/md-3.jpg"
+					src="/images/md-10.jpg"
           fill={true}
 					className={twMerge([
 						"HeroBg",
@@ -36,7 +37,7 @@ export default function Home() {
         <div 
           className={twMerge(
             kurale.className,
-            "Cover absolute inset-0 z-20 bg-background/70 flex items-center justify-center flex-col gap-4 pt-16"
+            "Cover absolute inset-0 z-20 bg-background/60 flex items-center justify-center flex-col gap-4 pt-48"
           )}
         >
           <TextAnimate animation="blurInUp" by="character" once className="text-foreground text-8xl font-black mb-16">
@@ -97,6 +98,9 @@ export default function Home() {
 
       {/* Invitation */}
       <InvitationSection />
+
+      {/* Countdown Section */}
+      <CountdownSection />
     </div>
   );
 }
