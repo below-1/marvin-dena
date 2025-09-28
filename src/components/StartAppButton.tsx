@@ -15,17 +15,6 @@ export function StartAppButton({ onClick }: Props) {
 
   return (
     <>
-      <div className={twMerge(
-        !isPlaying ? "hidden" : "flex",
-        "fixed z-80 top-4 left-4 w-18 h-18 rounded-full items-center justify-center bg-black/40 animate-bounce",
-      )}>
-        <MdiHeart
-          className={twMerge(
-            "text-transparent size-12",
-            isPlaying ? "text-pink-500 animate-aurora stroke-solid stroke-white" : "stroke-solid stroke-white"
-          )}
-        />
-      </div>
       <Button 
         onClick={() => {
           audioRef.current?.play()
@@ -40,7 +29,7 @@ export function StartAppButton({ onClick }: Props) {
         }}
         variant="outline" 
         size="lg" 
-        className="uppercase font-mono text-white scale-120"
+        className="uppercase font-mono scale-120"
       >
         Open Invitation
       </Button>

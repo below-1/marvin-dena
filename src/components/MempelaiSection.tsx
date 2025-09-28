@@ -6,6 +6,7 @@ import { MempelaiCard } from "./MempelaiCard";
 import { useRef } from "react";
 import { AnimatedBeam } from "./ui/animated-beam";
 import Image from "next/image";
+import { BlurFade } from "./ui/blur-fade";
 
 const kurale = Kurale({
   weight: ["400"]
@@ -28,23 +29,27 @@ export function MempelaiSection() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
 
-          <MempelaiCard
-            ref={div1Ref}
-            imageUrl="/images/md-9.jpg"
-            name="Marvin Sole"
-            line1="Putra Ke Ketiga Anak Ke Empat dari Lima Bersaudara"
-            line2="Pasangan Bapak Anderias Sole &"
-            line3="Ibu Eri Inna Subu Taopan"
-          />
+          <BlurFade inView delay={0.2}>
+            <MempelaiCard
+              ref={div1Ref}
+              imageUrl="/images/md-9.jpg"
+              name="Marvin Sole"
+              line1="Putra Ke Ketiga Anak Ke Empat dari Lima Bersaudara"
+              line2="Pasangan Bapak Anderias Sole &"
+              line3="Ibu Eri Inna Subu Taopan"
+            />
+          </BlurFade>
 
-          <MempelaiCard
-            ref={div2Ref}
-            imageUrl="/images/md-8.jpg"
-            name="Dena Selfiani Nenohalan"
-            line1="Putri Sulung Anak Pertama dari Lima Bersaudara"
-            line2="Pasangan Bapak Melianto Nenohalan &"
-            line3="Ibu Mesryani Nenohalan - Lay"
-          />
+          <BlurFade inView delay={0.5}>
+            <MempelaiCard
+              ref={div2Ref}
+              imageUrl="/images/md-8.jpg"
+              name="Dena Selfiani Nenohalan"
+              line1="Putri Sulung Anak Pertama dari Lima Bersaudara"
+              line2="Pasangan Bapak Melianto Nenohalan &"
+              line3="Ibu Mesryani Nenohalan - Lay"
+            />
+          </BlurFade>
 
         </div>
 
@@ -57,17 +62,19 @@ export function MempelaiSection() {
           />
         </div>
 
-        <div 
-          className={twMerge(
-            kurale.className,
-            "text-foreground font-mono max-w-2xl mx-auto text-center"
-          )}
-        >
-          <blockquote className="text-secondary text-lg">
-            Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan
-          </blockquote>
-          <p className="text-base">Kolose 3:14</p>
-        </div>
+        <BlurFade inView delay={0.8}>
+          <div 
+            className={twMerge(
+              kurale.className,
+              "text-foreground font-mono max-w-2xl mx-auto text-center"
+            )}
+          >
+            <blockquote className="text-secondary text-lg">
+              Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan
+            </blockquote>
+            <p className="text-base">Kolose 3:14</p>
+          </div>
+        </BlurFade>
 
       </div>
 
