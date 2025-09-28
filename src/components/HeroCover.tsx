@@ -23,7 +23,7 @@ export function HeroCover({
         coverRef.current.style.display = "none";
       }
     }, 200)
-  }, [open])
+  }, [isOpen])
   return (
     <div
       ref={coverRef}

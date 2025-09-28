@@ -2,16 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
-import { MdiHeart } from "./icons/mdi-heart";
-import { twMerge } from "tailwind-merge";
 
 type Props = {
   onClick: () => void;
 }
 
 export function StartAppButton({ onClick }: Props) {
-  const audioRef = useRef<HTMLAudioElement>(new Audio("/wedding-audio.mp3"))
-  const [ isPlaying, setPlaying ] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  
+  useEffect(() => {
+    audioRef.current = typeof Audio === undefined ? null : new Audio("/wedding-audio.mp3");
+  }, []);
 
   return (
     <>
@@ -19,8 +20,6 @@ export function StartAppButton({ onClick }: Props) {
         onClick={() => {
           audioRef.current?.play()
             .then(r => {
-              console.log(r)
-              setPlaying(true)
               onClick()
             })
             .catch(err => {
