@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@react-three/fiber": "^9.3.0",
     "@tiagotrindade/audio-visualizer": "^1.2.1",
+    "@types/three": "^0.180.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",
@@ -19,6 +21,7 @@
     "react-dom": "19.1.0",
     "react-scroll-parallax": "^3.4.7",
     "tailwind-merge": "^3.3.1",
+    "three": "^0.180.0",
     "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
