@@ -19,7 +19,7 @@ export function MempelaiSection() {
     <div 
       className={twMerge(
         kurale.className,
-        "relative bg-background h-screen max-w-screen flex flex-col py-16 md:py-32 px-4 md:px-0"
+        "relative bg-background min-h-screen max-w-screen flex flex-col py-16 md:py-32 px-4 md:px-0"
       )}
       ref={containerRef}
     >

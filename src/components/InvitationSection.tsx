@@ -25,10 +25,10 @@ export function InvitationSection() {
       id="InvitationSection" 
       className={twMerge(
         kurale.className,
-        "px-4 md:px-0 max-w-screen h-screen bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
+        "px-4 md:px-0 max-w-screen h-auto md:h-screen bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
       )}
     >
-      <div className="h-1/3 max-w-5xl mx-auto flex flex-col justify-center items-center gap-4">
+      <div className="h-auto md:h-1/3 py-8 md:py-0 max-w-5xl mx-auto flex flex-col justify-center items-center gap-4">
 
         <div className="flex items-center justify-center">
           <Image
@@ -39,7 +39,7 @@ export function InvitationSection() {
           />
         </div>
 
-        <p className="text-neutral-500 text-center text-xl">Dengan mengucap rasa syukur dan terimakasih atas berkat Tuhan, <br/>Perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan putra-putri kami yang akan dilaksanakan pada:</p>
+        <p className="text-neutral-500 text-center text-lg md:text-xl">Dengan mengucap rasa syukur dan terimakasih atas berkat Tuhan, <br/>Perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan putra-putri kami yang akan dilaksanakan pada:</p>
 
       </div>
       {/* <div className="hidden md:grid grid-cols-2">
@@ -51,7 +51,7 @@ export function InvitationSection() {
         </div>
       </div> */}
 
-      <div className="h-2/3 text-neutral-700 w-full grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x-4">
+      <div className="h-auto md:h-2/3 text-neutral-700 w-full grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x-4">
 
         <CeremonySection
           className="bg-secondary/20"

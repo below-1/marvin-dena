@@ -12,7 +12,7 @@ const TARGET_TIME = new Date(2025, 9, 15, 18, 0, 0)
 export default function CountdownClient() {
   return (
 
-    <ParallaxBanner className="h-160 bg-pink-200 w-screen">
+    <ParallaxBanner className="h-screen md:h-160 bg-pink-200 w-screen">
       <ParallaxBannerLayer className="bg-black/50 absolute inset-0 z-21">
 
       </ParallaxBannerLayer>
@@ -23,7 +23,7 @@ export default function CountdownClient() {
         <div className='flex flex-col gap-4'>
           <p className={twMerge(
             kurale.className,
-            'text-white font-bold text-7xl text-center'
+            'text-white font-bold text-4xl md:text-7xl text-center'
           )}>
             Countdown Timer
           </p>
@@ -65,8 +65,8 @@ type CounterBoxProps = {
 function CounterBox({ count, label }: CounterBoxProps) {
   // const 
   return (
-    <div className="px-8 py-6 rounded-lg border flex flex-col items-center justify-center text-white">
-      <span className='text-7xl font-bold font-mono'>{count}</span>
+    <div className="md:px-8 md:py-6 px-4 py-2 rounded-lg border flex flex-col items-center justify-center text-white">
+      <span className='text-4xl md:text-7xl font-bold font-mono'>{count}</span>
       <span className='text-lg'>{label}</span>
     </div>
   )
