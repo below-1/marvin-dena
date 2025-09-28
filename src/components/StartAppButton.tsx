@@ -2,24 +2,37 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
-import AudioVisualizer from "@tiagotrindade/audio-visualizer"
+import { MdiHeart } from "./icons/mdi-heart";
+import { twMerge } from "tailwind-merge";
 
-const audio = new Audio("/wedding-audio.mp3")
+type Props = {
+  onClick: () => void;
+}
 
-export function StartAppButton() {
-  const audioRef = useRef<HTMLAudioElement>(audio)
+export function StartAppButton({ onClick }: Props) {
+  const audioRef = useRef<HTMLAudioElement>(new Audio("/wedding-audio.mp3"))
+  const [ isPlaying, setPlaying ] = useState(false)
 
   return (
     <>
-      <div className="fixed z-50 top-0 w-[120px] h-[120px] flex items-center bg-black/40">
-        {/* <AudioVisualizer audio={audioRef} style={{ width: 100, height: 100 }} /> */}
+      <div className={twMerge(
+        !isPlaying ? "hidden" : "flex",
+        "fixed z-80 top-4 left-4 w-18 h-18 rounded-full items-center justify-center bg-black/40 animate-bounce",
+      )}>
+        <MdiHeart
+          className={twMerge(
+            "text-transparent size-12",
+            isPlaying ? "text-pink-500 animate-aurora stroke-solid stroke-white" : "stroke-solid stroke-white"
+          )}
+        />
       </div>
       <Button 
         onClick={() => {
-          console.log(audioRef.current)
-          audio.play()
+          audioRef.current?.play()
             .then(r => {
               console.log(r)
+              setPlaying(true)
+              onClick()
             })
             .catch(err => {
               console.error(err)
