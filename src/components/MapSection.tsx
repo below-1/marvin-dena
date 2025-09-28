@@ -2,7 +2,7 @@ export function MapSection() {
   return (
     <div 
       id="MapSection"
-      className="w-full bg-[#8d7b5d]"
+      className="w-full from-[#8d7b5d] to-[#efe4d0] bg-gradient-to-b"
     >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 py-32 px-4 md:px-0">
 
@@ -13,7 +13,7 @@ export function MapSection() {
             height="100%"
             frameBorder={0}
             style={{ border: 0 }}
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=10%C2%B010'39.0%22S%20123%C2%B033'43.5%22E&maptype=roadmap"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=gmit%20kota%20kupang&maptype=roadmap"
             allowFullScreen
           />
         </div>

@@ -20,7 +20,7 @@ export default function Home() {
       {/* Landing Cover */}
       <HeroCover isOpen={isOpen} setOpen={setOpen} />
 
-      <HeartAnimation isPlaying={isOpen} />
+      {/* <HeartAnimation isPlaying={isOpen} /> */}
 
 
       {isOpen && (

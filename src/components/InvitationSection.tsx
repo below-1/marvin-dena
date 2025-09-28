@@ -1,6 +1,8 @@
 import { kurale } from "@/commons/fonts"
 import Image from "next/image"
 import { twMerge } from "tailwind-merge"
+import { TypingAnimation } from "./ui/typing-animation"
+import { BlurFade } from "./ui/blur-fade"
 
 const CEREMONIES = [
   {
@@ -86,16 +88,21 @@ function CeremonySection(props: Props) {
       )}
     >
       <div className="max-w-96 flex flex-col">
-        <p className="text-4xl leading-12 tracking-wider mb-6">{props.title}</p>
+        <TypingAnimation startOnView className="text-4xl leading-12 tracking-wider mb-6">
+          {props.title}
+        </TypingAnimation>
 
-        <div className="font-mono text-lg font-bold text-neutral-600 mb-8">
-          <p>{props.dateDisplay}</p>
-          <p>{props.timeDisplay}</p>
-        </div>
+        <BlurFade inView delay={0.4}>
+          <div className="font-mono text-lg font-bold text-neutral-600 mb-8">
+            <p>{props.dateDisplay}</p>
+            <p>{props.timeDisplay}</p>
+          </div>
 
-        <p className="mb-4 text-neutral-400 font-bold font-mono text-sm tracking-widest uppercase">Bertempat Di:</p>
-        <p className="font-mono font-bold text-neutral-500 mb-1">{props.placeDisplay}</p>
-        <p className="font-mono text-xs text-neutral-600">{props.address}</p>
+          <p className="mb-4 text-neutral-400 font-bold font-mono text-sm tracking-widest uppercase">Bertempat Di:</p>
+          <p className="font-mono font-bold text-neutral-500 mb-1">{props.placeDisplay}</p>
+          <p className="font-mono text-xs text-neutral-600">{props.address}</p>
+        </BlurFade>
+
 
       </div>
     </div>

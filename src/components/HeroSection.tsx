@@ -20,7 +20,7 @@ export function HeroSection() {
           "object-cover z-10"
         ])}
       />    
-      <LightRays color="var(--secondary)" className="z-100" />
+      <LightRays color="var(--secondary)" className="z-120" speed={26} count={3} opacity={1} />
       <div 
         className={twMerge(
           kurale.className,
@@ -31,17 +31,20 @@ export function HeroSection() {
           Marvin & Dena
         </TextAnimate>
         <div className="h-96 flex items-center justify-center flex-col">
-          <div className="text-foreground text-4xl text-center">
-            <TypingAnimation delay={1200} duration={50} startOnView={true}>Special Invitation To Aristop Solle</TypingAnimation>
-          </div>
+          <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>Kepada Aristop Solle</TypingAnimation>
           <BlurFade delay={2} duration={1} className="flex items-center justify-center flex-col gap-4 pt-16 mb-8">
             <p className="text-foreground text-lg text-center">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
             <Button 
+              asChild
               variant="outline" 
               size="lg" 
               className="uppercase font-mono text-white scale-120"
             >
-              Save The Date
+              <a 
+                target="_blank"
+                href="http://www.google.com/calendar/event?action=TEMPLATE&text=Pernikahan%20Marvin%20dan%20Dena&dates=20131124T010000Z/20131124T020000Z&details=Pernikahan%20Marvin%20Dena&location=123%20Main%20St%2C%20Example%2C%20NY">
+                Save The Date
+              </a>
             </Button>
           </BlurFade>
           

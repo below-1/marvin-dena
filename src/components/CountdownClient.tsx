@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Parallax, ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import { twMerge } from 'tailwind-merge';
 import { useInterval } from 'usehooks-ts';
+import { BlurFade } from './ui/blur-fade';
 
 const TARGET_TIME = new Date(2025, 9, 15, 18, 0, 0)
 
@@ -50,10 +51,18 @@ function CountdownClock() {
   }, 1000)
   return (
     <div className='grid md:grid-cols-4 gap-4 md:gap-16'>
-      <CounterBox count={counts.days} label='Hari' />
-      <CounterBox count={counts.hours} label='Jam' />
-      <CounterBox count={counts.minutes} label='Menit' />
-      <CounterBox count={counts.seconds} label='Detik' />
+      <BlurFade inView delay={0.2}>
+        <CounterBox count={counts.days} label='Hari' />
+      </BlurFade>
+      <BlurFade inView delay={0.4}>
+        <CounterBox count={counts.hours} label='Jam' />
+      </BlurFade>
+      <BlurFade inView delay={0.6}>
+        <CounterBox count={counts.minutes} label='Menit' />
+      </BlurFade>
+      <BlurFade inView delay={0.8}>
+        <CounterBox count={counts.seconds} label='Detik' />
+      </BlurFade>
     </div>
   )
 }
