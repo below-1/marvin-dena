@@ -1,0 +1,25 @@
+.HeroBg {
+  animation-name: HeroZooming;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes HeroZooming {
+  0% {
+    scale: 100%;
+  }
+  50% {
+    scale: 110%;
+  }
+  80% {
+    opacity: 30%;
+  }
+  95% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 10%;
+    scale: 100%;
+  }
+}

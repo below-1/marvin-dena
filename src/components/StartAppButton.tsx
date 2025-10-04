@@ -28,7 +28,7 @@ export function StartAppButton({ onClick }: Props) {
         }}
         variant="outline" 
         size="lg" 
-        className="uppercase font-mono scale-120"
+        className="uppercase font-mono scale-120 text-white"
       >
         Open Invitation
       </Button>

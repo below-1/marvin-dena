@@ -8,6 +8,7 @@ import { TextAnimate } from "./ui/text-animate";
 import { TypingAnimation } from "./ui/typing-animation";
 import { BlurFade } from "./ui/blur-fade";
 import { StartAppButton } from "./StartAppButton";
+import Image from "next/image";
 
 export function HeroCover({
   isOpen,
@@ -32,11 +33,16 @@ export function HeroCover({
         isOpen && "scale-0"
       )}
     >
-      <Particles
-        vx={0.5}
-        vy={1}
-        size={4}
-      />
+      <div className="absolute inset-0">
+        <Image
+          alt="MD1"
+          src="/images/md-12.jpg"
+          fill={true}
+          className={twMerge([
+            "object-cover"
+          ])}
+        />    
+      </div>
       <div
         className={twMerge(
           engagement.className,
