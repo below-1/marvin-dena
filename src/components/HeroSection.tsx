@@ -13,23 +13,24 @@ import { PixelImage } from "./ui/pixel-image";
 import "./HeroSection.css";
 import { useEffect, useMemo, useState } from "react";
 import { useInterval } from "usehooks-ts";
+import { SpinningText } from "./ui/spinning-text";
 
 export function HeroSection() {
-  const [ activeImage, setActiveImage ] = useState(1)
-  const [ images, setImages ] = useState([
+  const [activeImage, setActiveImage] = useState(1)
+  const [images, setImages] = useState([
     { id: 1, path: "/images/md-5.jpg" },
     { id: 2, path: "/images/md-6.jpg" },
     { id: 3, path: "/images/md-12.jpg" },
   ])
   useInterval(() => {
-    setActiveImage(i => (i  % 4) + 1);
+    setActiveImage(i => (i % 4) + 1);
   }, 4000)
 
   return (
-    <div className="HeroCover relative overflow-clip h-screen max-w-screen dark">
+    <div className="HeroCover dark relative overflow-clip h-screen max-w-screen dark">
       <AnimatePresence>
         {images.map(image => activeImage !== image.id && (
-          <motion.div 
+          <motion.div
             key={image.id}
             className={twMerge([
               "absolute inset-0 z-10"
@@ -58,44 +59,78 @@ export function HeroSection() {
               className={twMerge([
                 "object-cover"
               ])}
-            />    
+            />
           </motion.div>
         ))}
       </AnimatePresence>
 
-      <div className="absolute inset-0 z-30 from-[rgba(23,41,96,0.1)] to-[rgba(23,41,96,1)] bg-gradient-to-b">
+      <div 
+        className="absolute inset-0 z-30 from-[rgba(23,41,96,0.1)] to-[rgba(23,41,96,1)] bg-gradient-to-b"
+        // className="absolute inset-0 z-30 bg-primary/70 backdrop-blur-xs"
+      >
 
       </div>
-      
-      <div 
+
+      <div
+        className="text-white absolute z-40 left-0 top-0 bottom-0 flex flex-col justify-center"
+      >
+        <div
+          className="relative rotate-z-90 -translate-x-12 font-mono font-black text-xl tracking-widest"
+        >15.10.2025</div>
+      </div>
+
+      <div
         className={twMerge(
           kurale.className,
-          "Cover absolute inset-0 z-40 flex items-center justify-between flex-col gap-4 py-16 px-4 md:px-0"
+          "Cover absolute inset-0 z-40 flex items-center flex-col gap-4 py-8 px-4 md:px-0"
         )}
       >
-        <TextAnimate delay={0.6} animation="blurInUp" by="character" once className="text-foreground text-5xl md:text-8xl font-black mb-4">
-          Marvin & Dena
-        </TextAnimate>
+        <div 
+          className="w-full self-start flex justify-between flex-row-reverse"
+        >
+          <SpinningText duration={50} className="text-white text-xs font-black font-mono my-6">The Wedding Of</SpinningText>
+          <div
+            className="flex flex-col font-mono font-black text-white text-6xl md:text-8xl"
+          >
+            <h1>Marvin</h1>
+            <h1>&Dena</h1>
+          </div>
+        </div>
+
+        <div 
+          className="grow self-start flex"
+        >
+          <div 
+            className="relative scale-125 px-0.5 bg-secondary/20 h-full"
+          ></div>
+        </div>
         <div className="flex items-center justify-center flex-col">
           <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>Kepada Aristop Solle</TypingAnimation>
-          <BlurFade delay={2} duration={1} className="flex items-center justify-center flex-col gap-4">
-            <p className="text-foreground text-xs md:text-lg text-center">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
-            <Button 
+          <BlurFade 
+            delay={2} 
+            duration={1}
+            className="flex items-center justify-center flex-col gap-4"
+          >
+            <p 
+              className="text-foreground text-xs md:text-lg text-center"
+            >
+              Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
+            {/* <Button
               asChild
-              variant="outline" 
-              size="lg" 
+              variant="outline"
+              size="lg"
               className="uppercase font-mono text-white scale-120"
             >
-              <a 
+              <a
                 target="_blank"
                 href="http://www.google.com/calendar/event?action=TEMPLATE&text=Pernikahan%20Marvin%20dan%20Dena&dates=20131124T010000Z/20131124T020000Z&details=Pernikahan%20Marvin%20Dena&location=123%20Main%20St%2C%20Example%2C%20NY">
                 Save The Date
               </a>
-            </Button>
+            </Button> */}
           </BlurFade>
-          
+
         </div>
-      </div>    
+      </div>
     </div>
   )
 }

@@ -10,6 +10,7 @@ import { useState } from "react";
 import { HeroSection } from "@/components/HeroSection";
 import { HeartAnimation } from "@/components/HeartsAnimation";
 import { HeroCover } from "@/components/HeroCover";
+import { SalamSection } from "@/components/SalamSection";
 
 export default function Home() {
   const [ isOpen, setOpen ] = useState(false)
@@ -30,6 +31,8 @@ export default function Home() {
 
           {/* Mempelai */}
           <MempelaiSection />
+
+          <SalamSection />
 
           {/* Invitation */}
           <InvitationSection />

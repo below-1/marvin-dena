@@ -27,21 +27,21 @@ export function InvitationSection() {
       id="InvitationSection" 
       className={twMerge(
         kurale.className,
-        "px-4 md:px-0 max-w-screen h-auto md:h-screen bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
+        "max-w-screen h-auto md:h-screen bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
       )}
     >
-      <div className="h-auto md:h-1/3 py-8 md:py-0 max-w-5xl mx-auto flex flex-col justify-center items-center gap-4">
+      <div className="h-auto md:h-1/3 py-32 pb-16 md:py-0 px-4 md:px-0 font-sans max-w-6xl mx-auto flex flex-col justify-center items-center gap-4">
 
-        <div className="flex items-center justify-center">
+        <div className="self-start flex justify-start">
           <Image
             src="/images/ormament-3.png"
-            width={256}
+            width={124}
             height={64}
             alt=""
           />
         </div>
 
-        <p className="text-neutral-500 text-center text-lg md:text-xl">Dengan mengucap rasa syukur dan terimakasih atas berkat Tuhan, <br/>Perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan putra-putri kami yang akan dilaksanakan pada:</p>
+        <p className="text-neutral-500 text-start text-base md:text-xl tracking-tight">Dengan mengucap rasa syukur dan terimakasih atas berkat Tuhan, <br/>Perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan putra-putri kami yang akan dilaksanakan pada:</p>
 
       </div>
       {/* <div className="hidden md:grid grid-cols-2">
@@ -53,17 +53,30 @@ export function InvitationSection() {
         </div>
       </div> */}
 
-      <div className="h-auto md:h-2/3 text-neutral-700 w-full grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x-4">
+      <div className="relative h-screen md:h-2/3 text-neutral-700 w-full grid md:grid-cols-2 divide-y md:divide-y-0">
+        <div 
+          className="hidden md:block bg-secondary/20"
+        >
+        </div>
+        <div 
+          className="hidden md:block bg-secondary/10"
+        >
+        </div>
 
-        <CeremonySection
-          className="bg-secondary/20"
-          {...CEREMONIES[0]}
-        />
+        <div className="absolute inset-0 flex md:items-center md:justify-center">
+          <div className="w-6xl grid md:grid-cols-2">
+            <CeremonySection
+              className="bg-secondary/10 md:bg-transparent"
+              {...CEREMONIES[0]}
+            />
 
-        <CeremonySection
-          className="bg-secondary/10"
-          {...CEREMONIES[1]}
-        />
+            <CeremonySection
+              className="md:px-4 bg-secondary/20 md:bg-transparent"
+              {...CEREMONIES[1]}
+            />
+          </div>
+        </div>
+
 
       </div>
     </section>
@@ -83,7 +96,7 @@ function CeremonySection(props: Props) {
   return (
     <div 
       className={twMerge(
-        "bg-primary/10 p-8 grid justify-center items-center",
+        "bg-transparent px-4 md:px-0 py-8 grid content-center",
         props.className
       )}
     >

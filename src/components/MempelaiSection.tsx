@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { AnimatedBeam } from "./ui/animated-beam";
 import Image from "next/image";
 import { BlurFade } from "./ui/blur-fade";
+import { engagement } from "@/commons/fonts";
 
 const kurale = Kurale({
   weight: ["400"]
@@ -20,61 +21,62 @@ export function MempelaiSection() {
     <div 
       className={twMerge(
         kurale.className,
-        "relative min-h-screen max-w-screen flex flex-col py-16 md:py-32 px-4 md:px-0"
+        "relative min-h-screen max-w-screen flex flex-col py-16 pb-0 md:py-32 md:pb-0 bg-secondary/20"
       )}
       ref={containerRef}
     >
-      {/* <Meteors number={30} /> */}
-      <div className="max-w-5xl mx-auto">
+      <div className="">
 
-        <div className="grid md:grid-cols-2 gap-32 md:gap-8 mb-16">
-
-          <BlurFade inView delay={0.2}>
-            <MempelaiCard
-              ref={div1Ref}
-              imageUrl="/images/md-9.jpg"
-              name="Marvin Sole"
-              line1="Putra Ke Ketiga Anak Ke Empat dari Lima Bersaudara"
-              line2="Pasangan Bapak Anderias Sole &"
-              line3="Ibu Eri Inna Subu Taopan"
-            />
-          </BlurFade>
-
-          <BlurFade inView delay={0.5}>
-            <MempelaiCard
-              ref={div2Ref}
-              imageUrl="/images/md-8.jpg"
-              name="Dena Selfiani Nenohalan"
-              line1="Putri Sulung Anak Pertama dari Lima Bersaudara"
-              line2="Pasangan Bapak Melianto Nenohalan &"
-              line3="Ibu Mesryani Nenohalan - Lay"
-            />
-          </BlurFade>
-
-        </div>
-
-        <div className="flex items-center justify-center">
-          <Image
-            src="/ormament-1.svg"
-            width={128}
-            height={48}
-            alt=""
-          />
-        </div>
-
-        <BlurFade inView delay={0.8}>
-          <div 
-            className={twMerge(
-              kurale.className,
-              "text-foreground font-mono max-w-2xl mx-auto text-center"
-            )}
-          >
-            <blockquote className="text-secondary text-lg">
-              Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan
-            </blockquote>
-            <p className="text-base">Kolose 3:14</p>
+        <div className="flex flex-col text-center font-sans text-foreground/60 mb-16">
+          <h2 className="font-mono text-neutral-400 text-lg tracking-wide">
+            Wedding Invitation
+          </h2>
+          <h3 className={twMerge(engagement.className, "text-4xl")}>Welcome to the <br/> Wedding of</h3>
+          <div className="self-center px-0.5 bg-foreground/10 h-16">
           </div>
-        </BlurFade>
+          <p 
+            className={twMerge(kurale.className, "text-3xl")}
+          >Marvin & Dena</p>
+        </div>
+
+        <div className="grid">
+
+          <div className="py-16 px-8">
+            <BlurFade inView delay={0.2}>
+              <MempelaiCard
+                ref={div1Ref}
+                imageUrl="/images/md-9.jpg"
+                name="Marvin Sole"
+                line1="Putra Ke Ketiga Anak Ke Empat dari Lima Bersaudara"
+                line2="Pasangan Bapak Anderias Sole & Ibu Eri Inna Subu Taopan"
+                ig={{
+                  path: "https://www.instagram.com/humankerdus",
+                  label: "marvin_sole"
+                }}
+              />
+            </BlurFade>
+          </div>
+
+          <div className="py-16 px-8 bg-secondary/10">
+            <BlurFade inView delay={0.5}>
+              <MempelaiCard
+                ref={div2Ref}
+                imageUrl="/images/md-8.jpg"
+                name="Dena Selfiani Nenohalan"
+                line1="Putri Sulung Anak Pertama dari Lima Bersaudara"
+                line2="Pasangan Bapak Melianto Nenohalan & Ibu Mesryani Nenohalan - Lay"
+                ig={{
+                  path: "https://www.instagram.com/humankerdus",
+                  label: "denanenohalan"
+                }}
+              />
+            </BlurFade>
+          </div>
+
+
+        </div>
+
+        
 
       </div>
 
