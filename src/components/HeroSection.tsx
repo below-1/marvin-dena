@@ -71,13 +71,7 @@ export function HeroSection() {
 
       </div>
 
-      <div
-        className="text-white absolute z-40 left-0 top-0 bottom-0 flex flex-col justify-center"
-      >
-        <div
-          className="relative rotate-z-90 -translate-x-12 font-mono font-black text-xl tracking-widest"
-        >15.10.2025</div>
-      </div>
+      <div className="absolute  z-50 rotate-z-90 -translate-x-12 translate-y-[calc(100vh/2)] text-white font-mono font-black text-xl tracking-widest">15.10.2025</div>
 
       <div
         className={twMerge(
@@ -88,7 +82,12 @@ export function HeroSection() {
         <div 
           className="w-full self-start flex justify-between flex-row-reverse"
         >
-          <SpinningText duration={50} className="text-white text-xs font-black font-mono my-6">The Wedding Of</SpinningText>
+          <SpinningText 
+            duration={50} 
+            className="text-white text-xs font-black font-mono my-6 -translate-x-12"
+          >
+            The Wedding Of
+          </SpinningText>
           <div
             className="flex flex-col font-mono font-black text-white text-6xl md:text-8xl"
           >
@@ -97,13 +96,15 @@ export function HeroSection() {
           </div>
         </div>
 
+        {/* Secondary Line */}
         <div 
           className="grow self-start flex"
         >
           <div 
-            className="relative scale-125 px-0.5 bg-secondary/20 h-full"
+            className="relative -z-10 scale-125 px-0.5 bg-secondary/80 h-full"
           ></div>
         </div>
+
         <div className="flex items-center justify-center flex-col">
           <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>Kepada Aristop Solle</TypingAnimation>
           <BlurFade 

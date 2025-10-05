@@ -49,6 +49,7 @@ export function GalleryMasonry() {
       <RowsPhotoAlbum 
         photos={photos} 
         targetRowHeight={250} 
+        spacing={8}
         onClick={({ index }) => setIndex(index)} 
       />
       <Lightbox

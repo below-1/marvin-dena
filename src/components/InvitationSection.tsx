@@ -3,6 +3,8 @@ import Image from "next/image"
 import { twMerge } from "tailwind-merge"
 import { TypingAnimation } from "./ui/typing-animation"
 import { BlurFade } from "./ui/blur-fade"
+import { Button } from "./ui/button"
+import { TextAnimate } from "./ui/text-animate"
 
 const CEREMONIES = [
   {
@@ -30,7 +32,7 @@ export function InvitationSection() {
         "max-w-screen h-auto md:h-screen bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
       )}
     >
-      <div className="h-auto md:h-1/3 py-32 pb-16 md:py-0 px-4 md:px-0 font-sans max-w-6xl mx-auto flex flex-col justify-center items-center gap-4">
+      <div className="h-auto md:h-1/3 py-32 pb-16 md:py-0 px-8 md:px-0 font-sans max-w-6xl mx-auto flex flex-col justify-center items-center gap-4">
 
         <div className="self-start flex justify-start">
           <Image
@@ -96,24 +98,28 @@ function CeremonySection(props: Props) {
   return (
     <div 
       className={twMerge(
-        "bg-transparent px-4 md:px-0 py-8 grid content-center",
+        "bg-transparent px-8 md:px-0 py-8 grid content-center",
         props.className
       )}
     >
       <div className="max-w-96 flex flex-col">
-        <TypingAnimation startOnView className="text-4xl leading-12 tracking-wider mb-6">
+        <TypingAnimation className="text-4xl leading-12 tracking-wider mb-6" startOnView >
           {props.title}
         </TypingAnimation>
 
-        <BlurFade inView delay={0.4}>
-          <div className="font-mono text-lg font-bold text-neutral-600 mb-8">
-            <p>{props.dateDisplay}</p>
-            <p>{props.timeDisplay}</p>
-          </div>
+        <div className="font-mono text-lg font-bold text-neutral-600 mb-8">
+          <TextAnimate once delay={0.4}>{props.dateDisplay}</TextAnimate>
+          <TextAnimate once delay={0.6}>{props.timeDisplay}</TextAnimate>
+        </div>
+        <p className="mb-4 text-neutral-400 font-bold font-mono text-sm tracking-widest uppercase">Bertempat Di:</p>
+        <TextAnimate once className="font-mono font-bold text-neutral-500 mb-1" delay={0.4}>{props.placeDisplay}</TextAnimate>
+        <TextAnimate once className="font-mono text-xs text-neutral-600" delay={0.6}>{props.placeDisplay}</TextAnimate>
 
-          <p className="mb-4 text-neutral-400 font-bold font-mono text-sm tracking-widest uppercase">Bertempat Di:</p>
-          <p className="font-mono font-bold text-neutral-500 mb-1">{props.placeDisplay}</p>
-          <p className="font-mono text-xs text-neutral-600">{props.address}</p>
+        <BlurFade inView delay={0.8}>
+          <div className="flex gap-4 my-8">
+            <Button variant="secondary" size="sm">Save The Date</Button>
+            <Button variant="secondary" size="sm">Open Map</Button>
+          </div>
         </BlurFade>
 
 
