@@ -3,19 +3,20 @@ import { Marquee } from "./ui/marquee"
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { kurale } from "@/commons/fonts";
+import { GalleryMasonry } from "./GalleryMasonry";
 
 export function GallerySection() {
   return (
     <section 
       id="GallerySection"
-      className="h-screen max-w-screen bg-secondary/30"
+      className="min-h-screen max-w-screen bg-secondary/30"
     >
-      <div className="max-w-6xl mx-auto py-32">
+      <div className="max-w-6xl mx-auto py-32 px-4 md:px-0">
         <h2 className={twMerge(
           kurale.className,
           "text-5xl text-center mb-8"
         )}>Gallery Foto</h2>
-        <MarqueeDemo />
+        <GalleryMasonry />
       </div>
     </section>
   )
