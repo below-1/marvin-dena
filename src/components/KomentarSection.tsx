@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { FormEvent, useCallback, useMemo } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -6,6 +6,7 @@ import { Textarea } from "./ui/textarea";
 import { formatDistanceToNow } from "date-fns";
 import { id as localeID } from "date-fns/locale";
 import { MaterialSymbolsHeartSmileRounded } from "./icons/heart-smile";
+import { createKomentarAction } from "@/lib/actions";
 
 export function KomentarSection() {
   const messages = useMemo(() => [
@@ -36,29 +37,7 @@ export function KomentarSection() {
         <div className="bg-neutral-100 border-4 border-white rounded-sm flex flex-col">
           <h2 className="text-xl font-bold uppercase text-center leading-12">34 Ucapan</h2>
 
-          <div className="flex flex-col gap-6 p-4 pb-6 border-b">
-
-            <div className="flex flex-col gap-1">
-              <Input
-                name="nama"
-                id="nama"
-                placeholder="Nama Anda..."
-                className="bg-white"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <Textarea
-                name="ucapan"
-                className="bg-white"
-                placeholder="Ucapan Anda..."
-                rows={8}
-              />
-            </div>
-
-            <Button>Kirim</Button>
-
-          </div>
+          <KomentarForm />
 
           <div className="flex flex-col divide-y">
             {messages.map(item => (
@@ -73,6 +52,39 @@ export function KomentarSection() {
 
       </div>
     </div>
+  )
+}
+
+function KomentarForm() {
+
+  return (
+    <form 
+      className="flex flex-col gap-6 p-4 pb-6 border-b"
+      action={createKomentarAction}
+    >
+
+      <div className="flex flex-col gap-1">
+        <Input
+          name="name"
+          id="name"
+          placeholder="Nama Anda..."
+          className="bg-white"
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <Textarea
+          name="message"
+          id="message"
+          className="bg-white"
+          placeholder="Ucapan Anda..."
+          rows={8}
+        />
+      </div>
+
+      <Button>Kirim</Button>
+
+    </form>
   )
 }
 
