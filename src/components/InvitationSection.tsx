@@ -12,14 +12,16 @@ const CEREMONIES = [
     dateDisplay: "Rabu, 15 / Oktober / 2025",
     timeDisplay: "Pukul 15:00 WITA",
     placeDisplay: "GMIT Jemaat Kota Kupang",
-    address: "Jl. Sukarno No.3, Lahilai Bissi Kopan, Kec. Kota Lama, Kota Kupang, Nusa Tenggara Tim."
+    address: "Jl. Sukarno No.3, Lahilai Bissi Kopan, Kec. Kota Lama, Kota Kupang, Nusa Tenggara Tim.",
+    addressLink: "https://maps.app.goo.gl/kYfeJ3QWCnVNNqNdA"
   },
   {
     title: "Resepsi",
     dateDisplay: "Rabu, 15 / Oktober / 2025",
     timeDisplay: "Pukul 18:00 WITA",
     placeDisplay: "Rumah Bapak Melianto Nenohalan",
-    address: "Jln. Ikan Kombong, Namosain"
+    address: "Jln. Ikan Kombong, Namosain",
+    addressLink: "https://maps.app.goo.gl/Sp3xwX1gy7DRFaEj6"
   }
 ]
 
@@ -91,6 +93,7 @@ type Props = {
   timeDisplay: string;
   placeDisplay: string;
   address: string;
+  addressLink: string;
   className?: string;
 }
 
@@ -118,7 +121,11 @@ function CeremonySection(props: Props) {
         <BlurFade inView delay={0.8}>
           <div className="flex gap-4 my-8">
             <Button variant="secondary" size="sm">Save The Date</Button>
-            <Button variant="secondary" size="sm">Open Map</Button>
+            <Button asChild variant="secondary" size="sm">
+              <a href={props.addressLink} target="_blank">
+                Open Map
+              </a>
+            </Button>
           </div>
         </BlurFade>
 
