@@ -7,6 +7,7 @@ import { MdiInstagram } from "./icons/mdi-instagram";
 type Props = {
   name: string;
   imageUrl: string;
+  title: string;
   line1: string;
   line2: string;
   ref?: RefObject<HTMLDivElement | null>;
@@ -43,7 +44,7 @@ export function MempelaiCard(props: Props) {
       </div>
 
       <div className="grid items-center justify-center content-center px-4">
-        <p className={twMerge("text-lg self-start w-full font-sans tracking-widest uppercase")}>The Groom</p>
+        <p className={twMerge("text-lg self-start w-full font-sans tracking-widest uppercase")}>{props.title}</p>
         <div className="relative scale-x-120 pt-0.5 bg-foreground/20 mt-2 mb-4"></div>
         <p 
           className={twMerge(

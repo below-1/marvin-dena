@@ -41,33 +41,35 @@ export function MempelaiSection() {
 
         <div className="grid">
 
-          <div className="py-16 px-8">
-            <BlurFade inView delay={0.2}>
-              <MempelaiCard
-                ref={div1Ref}
-                imageUrl="/images/md-9.jpg"
-                name="Marvin Sole"
-                line1="Putra Ke Ketiga Anak Ke Empat dari Lima Bersaudara"
-                line2="Pasangan Bapak Anderias Sole & Ibu Eri Inna Subu Taopan"
-                ig={{
-                  path: "https://www.instagram.com/humankerdus",
-                  label: "marvin_sole"
-                }}
-              />
-            </BlurFade>
-          </div>
-
           <div className="py-16 px-8 bg-secondary/10">
             <BlurFade inView delay={0.5}>
               <MempelaiCard
+                title="The Bride"
                 ref={div2Ref}
                 imageUrl="/images/md-8.jpg"
                 name="Dena Selfiani Nenohalan"
                 line1="Putri Sulung Anak Pertama dari Lima Bersaudara"
                 line2="Pasangan Bapak Melianto Nenohalan & Ibu Mesryani Nenohalan - Lay"
                 ig={{
-                  path: "https://www.instagram.com/humankerdus",
-                  label: "denanenohalan"
+                  path: "https://www.instagram.com/grazhna/",
+                  label: "grazhna"
+                }}
+              />
+            </BlurFade>
+          </div>
+
+          <div className="py-16 px-8">
+            <BlurFade inView delay={0.2}>
+              <MempelaiCard
+                title="The Groom"
+                ref={div1Ref}
+                imageUrl="/images/md-9.jpg"
+                name="Marvin Sole"
+                line1="Putra Ke Ketiga Anak Ke Empat dari Lima Bersaudara"
+                line2="Pasangan Bapak Anderias Sole & Ibu Eri Inna Subu Taopan"
+                ig={{
+                  path: "https://www.instagram.com/marvinsole_/",
+                  label: "marvinsole_"
                 }}
               />
             </BlurFade>
