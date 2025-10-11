@@ -12,8 +12,10 @@ export const komentarTable = sqliteTable("komentar", {
 
 export const sendHistoryTable = sqliteTable("send_history", {
   id: int().primaryKey(),
+  uniqueToken: text().notNull().unique(),
   name: text().notNull(),
-  whatsapp: text().notNull(),
+  url: text().notNull(),
+  attempt: integer().notNull().default(0),
   createdAt: integer({ mode: 'timestamp' })
     .notNull()
     .default(sql`(unixepoch())`)

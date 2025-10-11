@@ -44,6 +44,9 @@ importers:
       next:
         specifier: 15.5.4
         version: 15.5.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      random-string-generator:
+        specifier: ^1.0.7
+        version: 1.0.7
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -1190,6 +1193,9 @@ packages:
   promise-limit@2.7.0:
     resolution: {integrity: sha512-7nJ6v5lnJsXwGprnGXga4wx6d1POjvi5Qmf1ivTRxTjH4Z/9Czja/UCMLVmB9N93GeWOU93XaFaEt6jbuoagNw==}
 
+  random-string-generator@1.0.7:
+    resolution: {integrity: sha512-Nypoclbe9hWE2TUy8z4TtncLdBYHGOnaywkJ3gWp2zNpCbhuDQ1oc0fYdzet5a7hOoisGYvcDN8lzrc+O8MWaw==}
+
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
@@ -2112,6 +2118,8 @@ snapshots:
       source-map-js: 1.2.1
 
   promise-limit@2.7.0: {}
+
+  random-string-generator@1.0.7: {}
 
   react-dom@19.1.0(react@19.1.0):
     dependencies:

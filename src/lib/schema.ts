@@ -6,3 +6,9 @@ export const KomentarInputSchema = z.object({
 })
 
 export type IKomentarInputSchema = z.infer<typeof KomentarInputSchema>;
+
+export const SendHistorySchema = z.object({
+  name: z.string()
+})
+
+export type ISendHistorySchema = z.infer<typeof SendHistorySchema>
