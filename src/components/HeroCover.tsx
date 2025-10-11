@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { Particles } from "./ui/particles";
 import { engagement, kurale } from "@/commons/fonts";
@@ -12,12 +12,17 @@ import Image from "next/image";
 
 export function HeroCover({
   isOpen,
-  setOpen
+  setOpen,
+  name
 }: {
+  name: string,
   isOpen: boolean,
   setOpen: (v: boolean) => void
 }) {
   const coverRef = useRef<HTMLDivElement>(null)
+  const invitationMessage = useMemo(() => {
+    return `Special Invitation To ${name}`
+  }, [ name ])
   useEffect(() => {
     setTimeout(() => {
       if (isOpen && coverRef.current) {
@@ -67,7 +72,9 @@ export function HeroCover({
           kurale.className,
           "h-96 flex items-center justify-start flex-col"
         )}>
-          <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>Special Invitation To Aristop Solle</TypingAnimation>
+          <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>
+            {invitationMessage}
+          </TypingAnimation>
           <BlurFade delay={2} duration={1} className="flex items-center justify-center flex-col gap-4 pt-6 md:pt-8 mb-8">
             <p className="text-foreground text-lg text-center">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.</p>
           </BlurFade>

@@ -14,10 +14,12 @@ import type { IKomentar } from "@/db/schema";
 
 type HomeClientProps = {
   komentars: IKomentar[];
+  name: string;
 };
 
-export default function HomeClient({
-  komentars
+export default function InvitationClient({
+  komentars,
+  name
 }: HomeClientProps) {
   const [ isOpen, setOpen ] = useState(false)
   
@@ -25,7 +27,7 @@ export default function HomeClient({
     <div className="Wrapper">
 
       {/* Landing Cover */}
-      <HeroCover isOpen={isOpen} setOpen={setOpen} />
+      <HeroCover name={name}  isOpen={isOpen} setOpen={setOpen} />
 
       {/* <HeartAnimation isPlaying={isOpen} /> */}
 
