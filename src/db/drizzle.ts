@@ -7,6 +7,7 @@ config({ path: ".env" }); // or .env.local
 console.log(process.env.DATABASE_URL)
 console.log('process.env.DATABASE_URL')
 
-export const db = drizzle(process.env.DATABASE_URL!, {
-  schema
-});
+export const db = drizzle({ connection: {
+  url: process.env.DATABASE_URL!,
+  authToken: process.env.DATABASE_TOKEN!,
+}});
