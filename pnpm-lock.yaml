@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.64.0(react@19.1.0))
       '@libsql/client':
         specifier: ^0.15.15
         version: 0.15.15
@@ -47,6 +50,9 @@ importers:
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
+      react-hook-form:
+        specifier: ^7.64.0
+        version: 7.64.0(react@19.1.0)
       react-photo-album:
         specifier: ^3.1.0
         version: 3.1.0(@types/react@19.1.13)(react@19.1.0)
@@ -62,6 +68,9 @@ importers:
       yet-another-react-lightbox:
         specifier: ^3.25.0
         version: 3.25.0(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      zod:
+        specifier: ^4.1.12
+        version: 4.1.12
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -396,6 +405,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
+    peerDependencies:
+      react-hook-form: ^7.55.0
+
   '@img/colour@1.0.0':
     resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
     engines: {node: '>=18'}
@@ -700,6 +714,9 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
@@ -1012,7 +1029,6 @@ packages:
 
   libsql@0.5.22:
     resolution: {integrity: sha512-NscWthMQt7fpU8lqd7LXMvT9pi+KhhmTHAJWUB/Lj6MWa0MKFv0F2V4C6WKKpjCVZl0VwcDz4nOI3CyaT1DDiA==}
-    cpu: [x64, arm64, wasm32, arm]
     os: [darwin, linux, win32]
 
   lightningcss-darwin-arm64@1.30.1:
@@ -1179,6 +1195,12 @@ packages:
     peerDependencies:
       react: ^19.1.0
 
+  react-hook-form@7.64.0:
+    resolution: {integrity: sha512-fnN+vvTiMLnRqKNTVhDysdrUay0kUUAymQnFIznmgDvapjveUWOOPqMNzPg+A+0yf9DuE2h6xzBjN1s+Qx8wcg==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+
   react-photo-album@3.1.0:
     resolution: {integrity: sha512-9PiWzwvckfefJRHY5E6kcNKoWNjyyFKhQ6Pl5nS1Z29QeP9h8zDOAoVQKWcv/AhZjRoduw1dybu9RNMj0+uPzQ==}
     engines: {node: '>=18'}
@@ -1306,6 +1328,9 @@ packages:
         optional: true
       '@types/react-dom':
         optional: true
+
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
 
 snapshots:
 
@@ -1471,6 +1496,11 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.10':
     optional: true
+
+  '@hookform/resolvers@5.2.2(react-hook-form@7.64.0(react@19.1.0))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.64.0(react@19.1.0)
 
   '@img/colour@1.0.0':
     optional: true
@@ -1704,6 +1734,8 @@ snapshots:
       react: 19.1.0
     optionalDependencies:
       '@types/react': 19.1.13
+
+  '@standard-schema/utils@0.3.0': {}
 
   '@swc/helpers@0.5.15':
     dependencies:
@@ -2086,6 +2118,10 @@ snapshots:
       react: 19.1.0
       scheduler: 0.26.0
 
+  react-hook-form@7.64.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
   react-photo-album@3.1.0(@types/react@19.1.13)(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -2191,3 +2227,5 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.13
       '@types/react-dom': 19.1.9(@types/react@19.1.13)
+
+  zod@4.1.12: {}

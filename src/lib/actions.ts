@@ -1,6 +1,7 @@
-'use server';
+'use server'
 
-import { addKomentar } from "./komentar";
+import { revalidatePath } from "next/cache";
+import { addKomentar, loadKomentars } from "./komentar";
 
 export async function createKomentarAction(formData: FormData) {
 
@@ -14,6 +15,9 @@ export async function createKomentarAction(formData: FormData) {
     message
   });
 
-  console.log(newKomentar)
-  console.log('newKomentar')
+  revalidatePath("/")
+}
+
+export async function getAllKomentars() {
+  return loadKomentars()
 }

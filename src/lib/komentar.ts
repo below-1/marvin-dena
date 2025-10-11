@@ -1,5 +1,5 @@
 import { db } from "@/db/drizzle";
-import { IKomentarInput, komentarTable } from "@/db/schema";
+import { type IKomentarInput, komentarTable } from "@/db/schema";
 
 export async function loadKomentars() {
   const results = await db.select().from(komentarTable);
@@ -15,3 +15,4 @@ export async function addKomentar(input: IKomentarInput) {
   }
   return null;
 }
+

@@ -38,18 +38,23 @@ export function SendCard() {
 
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("here");
     const formData = new FormData(e.target as HTMLFormElement);
     const whatsapp = formData.get("whatsapp") as string;
-    const nama = encodeURIComponent( formData.get("nama") as string );
-    const invitationUrl = `${baseURL}/invite?name=${nama}`
+    const nama = formData.get("nama") as string;
+    const namaEncoded = encodeURIComponent( nama );
+    const invitationUrl = `${baseURL}/invite?name=${namaEncoded}`
     const message = getWhatsappMessage(invitationUrl, nama);
-    const whatsappUrl = `https://wa.me/${whatsapp}/?text=${message}`
+    const whatsappUrl = `https://api.whatsapp.com/send/?text=${message}`
     console.log(whatsappUrl);
     window.open(whatsappUrl, "_blank");
     // const url = 
   }, [])
 
   return (
+    <form
+          onSubmit={onSubmit}
+        >
     <Card className="w-full max-w-sm">
       <CardHeader>
         <CardTitle>Form Pengiriman Undangan</CardTitle>
@@ -58,25 +63,13 @@ export function SendCard() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form
-          onSubmit={onSubmit}
-        >
+        
           <div className="flex flex-col gap-6">
-            <div className="grid gap-2">
-              <Label htmlFor="whatsapp">Whatsapp</Label>
-              <Input
-                id="whatsapp"
-                name="whatsapp"
-                placeholder="nomor whatsapp..."
-                required
-              />
-            </div>
             <div className="grid gap-2">
               <Label htmlFor="nama">Nama</Label>
               <Input id="nama" name="nama" required />
             </div>
           </div>
-        </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button type="submit" className="w-full">
@@ -84,5 +77,7 @@ export function SendCard() {
         </Button>
       </CardFooter>
     </Card>
+
+    </form>
   )
 }

@@ -1,22 +1,22 @@
 import { sql } from "drizzle-orm";
-import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { int, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const komentarTable = sqliteTable("komentar", {
   id: int().primaryKey(),
   name: text().notNull(),
   message: text().notNull(),
-  createdAt: text('created_at')
+  createdAt: integer({ mode: 'timestamp' })
     .notNull()
-    .default(sql`(current_timestamp)`),
+    .default(sql`(unixepoch())`)
 });
 
 export const sendHistoryTable = sqliteTable("send_history", {
   id: int().primaryKey(),
   name: text().notNull(),
   whatsapp: text().notNull(),
-  createdAt: text('created_at')
+  createdAt: integer({ mode: 'timestamp' })
     .notNull()
-    .default(sql`(current_timestamp)`),
+    .default(sql`(unixepoch())`)
 })
 
 export type IKomentar = typeof komentarTable.$inferSelect;

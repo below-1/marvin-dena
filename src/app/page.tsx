@@ -1,56 +1,14 @@
-'use client';
+'use server';
 
-import { MempelaiSection } from "@/components/MempelaiSection";
-import { InvitationSection } from "@/components/InvitationSection";
-import { CountdownSection } from "@/components/CountdownSection";
-import { GallerySection } from "@/components/GallerySection";
-import { ThanksSection } from "@/components/ThanksSection";
-import { useState } from "react";
-import { HeroSection } from "@/components/HeroSection";
-import { HeroCover } from "@/components/HeroCover";
-import { SalamSection } from "@/components/SalamSection";
-import { KomentarSection } from "@/components/KomentarSection";
+import { getAllKomentars } from "@/lib/actions";
+import HomeClient from "./HomeClient";
 
-export default function Home() {
-  const [ isOpen, setOpen ] = useState(false)
-  
+export default async function Home() {
+  const komentars = await getAllKomentars();
   return (
-    <div className="Wrapper">
-
-      {/* Landing Cover */}
-      <HeroCover isOpen={isOpen} setOpen={setOpen} />
-
-      {/* <HeartAnimation isPlaying={isOpen} /> */}
-
-
-      {isOpen && (
-        <>
-          {/* Hero */}
-          <HeroSection />
-
-          {/* Mempelai */}
-          <MempelaiSection />
-
-          <SalamSection />
-
-          {/* Invitation */}
-          <InvitationSection />
-
-          {/* Countdown Section */}
-          <CountdownSection />
-
-          {/* Gallery Section */}
-          <GallerySection />
-
-          {/* Komentar Section */}
-          <KomentarSection />
-
-          {/* Thanks Section */}
-          <ThanksSection />
-        </>
-      )}
-
-    </div>
-  );
+    <HomeClient
+      komentars={komentars}
+    />
+  )
 }
 
