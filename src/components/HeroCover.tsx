@@ -34,7 +34,7 @@ export function HeroCover({
     <div
       ref={coverRef}
       className={twMerge(
-        "z-100 HeroCover dark fixed inset-0 transition-all bg-cover duration-[1s] ease-in-out bg-secondary",
+        "z-100 HeroCover dark fixed inset-0 transition-all bg-cover duration-[1s] ease-in-out bg-black",
         isOpen && "scale-0"
       )}
     >
