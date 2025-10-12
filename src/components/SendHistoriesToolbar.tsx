@@ -27,35 +27,40 @@ export function SendHistoriesToolbar() {
   return (
     <>
       <div className="fixed bg-background top-0 left-0 right-0 border-b">
-        <div className="md:max-w-6xl mx-auto flex items-center justify-between px-4">
-          <div className="h-16 flex gap-2 items-center">
-            <p 
-              className={twMerge(
-                engagement.className,
-                "tracking-tighter font-bold text-3xl"
-              )}
-            >M/D</p>
-            <Separator orientation="vertical" className="w-2" />
-            <SendInvitationDialog />
+        <div
+          className="md:max-w-6xl mx-auto px-4"
+        >
+          
+          <div className="flex items-center justify-between">
+            <div className="h-16 flex gap-2 items-center">
+              <p 
+                className={twMerge(
+                  engagement.className,
+                  "tracking-tighter font-bold text-3xl"
+                )}
+              >M/D</p>
+              <Separator orientation="vertical" className="w-2" />
+              <SendInvitationDialog />
+            </div>
+            <Toggle 
+              variant="outline" 
+              aria-label="filter toggle"
+              pressed={filterIsOpen}
+              onPressedChange={c => {
+                setFilterIsOpen(c)
+              }}
+            >
+              <Settings2 />
+            </Toggle>
           </div>
-          <Toggle 
-            variant="outline" 
-            aria-label="filter toggle"
-            pressed={filterIsOpen}
-            onPressedChange={c => {
-              setFilterIsOpen(c)
-            }}
-          >
-            <Settings2 />
-          </Toggle>
+          {filterIsOpen && (
+            <div className="md:max-w-2xl mx-auto">
+              <FilterContent />
+            </div>
+          )}
         </div>
       </div>
-      <div className="h-18"></div>
-      {filterIsOpen && (
-        <div className="md:max-w-2xl mx-auto">
-          <FilterContent />
-        </div>
-      )}
+      {/* <div className="h-18"></div> */}
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { formatDistanceToNow } from 'date-fns'
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, EllipsisVertical, Repeat2, Trash } from 'lucide-react';
 import { id as localeId } from 'date-fns/locale';
 import type { ISendHistory } from "@/db/schema"
 import {
@@ -20,9 +20,11 @@ import { Button } from './ui/button';
 
 type SendHistoryItemProps = {
   item: ISendHistory;
+  onResendInvitation: (id: number) => any;
+  onRemoveInvitation: (id: number) => any;
 }
 
-export function SendHistoryItem({ item }: SendHistoryItemProps) {
+export function SendHistoryItem({ item, onResendInvitation, onRemoveInvitation }: SendHistoryItemProps) {
   return (
     <div className="py-3 px-5 flex rounded-sm">
       <div className="flex flex-col grow text-foreground/80">
@@ -33,12 +35,21 @@ export function SendHistoryItem({ item }: SendHistoryItemProps) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="icon">
-            <ChevronDown />
+            <EllipsisVertical />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => onResendInvitation(item.id)}
+          >
+            <Repeat2 />
             Kirim Ulang
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => onRemoveInvitation(item.id)}
+          >
+            <Trash />
+            Hapus
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

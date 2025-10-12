@@ -7,6 +7,7 @@ import { ISendHistoryInput, sendHistoryTable } from "@/db/schema";
 import { db } from "@/db/drizzle";
 import { SendHistorySchema } from "./schema";
 import { redirect } from "next/navigation";
+import { eq, sql } from "drizzle-orm";
 
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL as string;
 
@@ -49,7 +50,7 @@ export async function sendInvitation(formData: FormData) {
   const namaEncoded = encodeURIComponent( nama );
   const invitationUrl = `${baseURL}invitation/${token}`
   const message = getWhatsappMessage(invitationUrl, nama);
-  const whatsappUrl = `https://api.whatsapp.com/send/?text=${message}`
+  const whatsappUrl = `https://wa.me/?text=${message}`
 
   const rowInput = {
     ...payload,
@@ -72,6 +73,49 @@ export async function sendInvitation(formData: FormData) {
 
   revalidatePath("/send");
   
+  return {
+    success: true,
+    data: result[0]
+  }
+}
+
+export async function resendInvitation(formData: FormData) {
+  const rawId = formData.get("id")
+  if (!rawId) {
+    throw new Error(`id is not defined`);
+  }
+  if (typeof rawId !== 'string') {
+    throw new Error(`id is not string`);
+  }
+  const id = parseInt(rawId);
+  const result = await db.update(sendHistoryTable)
+    .set({
+      attempt: sql`${sendHistoryTable.attempt} + 1`
+    })
+    .where(eq(sendHistoryTable.id, id))
+    .returning();
+  if (!result.length) throw new Error(`can't find the send history with id=${id}`);
+  revalidatePath("/send");
+  return {
+    success: true,
+    data: result[0]
+  }
+}
+
+export async function removeInvitation(formData: FormData) {
+  const rawId = formData.get("id")
+  if (!rawId) {
+    throw new Error(`id is not defined`);
+  }
+  if (typeof rawId !== 'string') {
+    throw new Error(`id is not string`);
+  }
+  const id = parseInt(rawId);
+  const result = await db.delete(sendHistoryTable)
+    .where(eq(sendHistoryTable.id, id))
+    .returning();
+  if (!result.length) throw new Error(`can't find the send history with id=${id}`);
+  revalidatePath("/send");
   return {
     success: true,
     data: result[0]

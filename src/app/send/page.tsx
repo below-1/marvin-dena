@@ -2,6 +2,7 @@
 
 import { SendCard } from "@/components/SendCard";
 import { SendHistoriesList } from "@/components/SendHistoriesList";
+import { Toaster } from "@/components/ui/sonner";
 import { SendHistoriesFilterSchema } from "@/lib/schema";
 import { getSendHistories } from "@/lib/send-history";
 
@@ -37,6 +38,7 @@ export default async function SendPage({ searchParams }: SendPageProps) {
     <div id="SendPage">
       <div className="h-screen">
         <SendHistoriesList {...data} />
+        <Toaster />
         {/* <SendCard /> */}
       </div>
     </div>
