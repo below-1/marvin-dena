@@ -12,3 +12,12 @@ export const SendHistorySchema = z.object({
 })
 
 export type ISendHistorySchema = z.infer<typeof SendHistorySchema>
+
+export const SendHistoriesFilterSchema = z.object({
+  keyword: z.string().optional(),
+  perPage: z.coerce.number().min(10).optional(),
+  page: z.coerce.number().min(0).optional(),
+  sortDirection: z.enum(['desc', 'asc']).optional()
+})
+
+export type ISendHistoriesFilterSchema = z.infer<typeof SendHistoriesFilterSchema>

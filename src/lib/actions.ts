@@ -54,6 +54,7 @@ export async function sendInvitation(formData: FormData) {
   const rowInput = {
     ...payload,
     uniqueToken: token,
+    attempt: 1,
     url: whatsappUrl,
   }
 
