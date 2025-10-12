@@ -23,7 +23,7 @@ export function HeroSection({
   const [images, setImages] = useState([
     { id: 1, path: "/images/md-5.jpg" },
     { id: 2, path: "/images/md-6.jpg" },
-    { id: 3, path: "/images/md-12.jpg" },
+    { id: 3, path: "/images/md-12.webp" },
   ])
   useInterval(() => {
     setActiveImage(i => (i % 4) + 1);

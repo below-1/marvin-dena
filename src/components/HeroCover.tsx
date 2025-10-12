@@ -41,7 +41,7 @@ export function HeroCover({
       <div className="absolute inset-0">
         <Image
           alt="MD1"
-          src="/images/md-12.jpg"
+          src="/images/md-12.webp"
           fill={true}
           className={twMerge([
             "object-cover"
