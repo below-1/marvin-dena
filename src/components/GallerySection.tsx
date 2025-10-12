@@ -11,7 +11,7 @@ export function GallerySection() {
       id="GallerySection"
       className="min-h-screen max-w-screen bg-secondary/30"
     >
-      <div className="max-w-6xl mx-auto py-32 px-4 md:px-0">
+      <div className="max-w-6xl mx-auto py-32 px-4">
         <h2 className={twMerge(
           kurale.className,
           "text-5xl text-center mb-8"

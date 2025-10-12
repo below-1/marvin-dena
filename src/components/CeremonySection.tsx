@@ -15,13 +15,14 @@ type Props = {
   address: string;
   addressLink: string;
   className?: string;
+  addToCalendarProps: any;
 }
 
 export function CeremonySection(props: Props) {
   return (
     <div 
       className={twMerge(
-        "bg-transparent px-8 lg:px-0 py-8 grid content-center",
+        "bg-transparent px-8 md:px-0 py-8 grid content-center",
         props.className
       )}
     >
@@ -42,11 +43,7 @@ export function CeremonySection(props: Props) {
           <div className="grid md:grid-cols-2 gap-2 my-8">
             <div className="">
               <AddToCalendarButton
-                name='Pemberkatan Marvin & Dena'
-                startDate='2026-02-21T10:13'
-                startTime="15:00"
-                options={['Google','Apple']}
-                timeZone='Asia/Makassar'
+                {...props.addToCalendarProps}
                 buttonStyle="flat"
                 label="Save The Date"
                 forceOverlay

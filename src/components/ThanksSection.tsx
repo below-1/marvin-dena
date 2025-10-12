@@ -22,7 +22,7 @@ export function ThanksSection() {
       <div 
         className={twMerge(
           kurale.className,
-          "absolute top-0 left-0 right-0 z-20 flex items-center justify-center flex-col text-white pt-8 px-4 md:px-0"
+          "absolute top-0 left-0 right-0 z-20 flex items-center justify-center flex-col text-white pt-8 px-4"
         )}
       >
         <TypingAnimation className="text-primary text-3xl md:text-7xl" delay={50} duration={50} startOnView={true}>Terimakasih</TypingAnimation>

@@ -15,7 +15,15 @@ const CEREMONIES = [
     timeDisplay: "Pukul 15:00 WITA",
     placeDisplay: "GMIT Jemaat Kota Kupang",
     address: "Jl. Sukarno No.3, Lahilai Bissi Kopan, Kec. Kota Lama, Kota Kupang, Nusa Tenggara Tim.",
-    addressLink: "https://maps.app.goo.gl/kYfeJ3QWCnVNNqNdA"
+    addressLink: "https://maps.app.goo.gl/kYfeJ3QWCnVNNqNdA",
+    addToCalendarProps: {
+      name: 'Pemberkatan Marvin & Dena',
+      startDate: '2025-10-15T15:00',
+      endDate: '2025-10-15T17:30',
+      options: ['Google','Apple'],
+      timeZone: 'Asia/Makassar',
+      location: "GMIT Jemaat Kota Kupang"
+    }
   },
   {
     title: "Resepsi",
@@ -23,7 +31,15 @@ const CEREMONIES = [
     timeDisplay: "Pukul 18:00 WITA",
     placeDisplay: "Rumah Bapak Melianto Nenohalan",
     address: "Jln. Ikan Kombong, Namosain",
-    addressLink: "https://maps.app.goo.gl/Sp3xwX1gy7DRFaEj6"
+    addressLink: "https://maps.app.goo.gl/Sp3xwX1gy7DRFaEj6",
+    addToCalendarProps: {
+      name: 'Resepsi Marvin & Dena',
+      startDate: '2025-10-15T18:00',
+      endDate: '2025-10-15T21:30',
+      options: ['Google','Apple'],
+      location: "Rumah Bapak Melianto Nenohalan",
+      timeZone: 'Asia/Makassar'
+    }
   }
 ]
 
@@ -71,12 +87,12 @@ export function InvitationSection() {
         <div className="absolute inset-0 flex md:items-center md:justify-center">
           <div className="w-6xl grid md:grid-cols-2">
             <CeremonySection
-              className="bg-secondary/10 md:bg-transparent"
+              className="bg-secondary/10 md:bg-transparent md:pl-4"
               {...CEREMONIES[0]}
             />
 
             <CeremonySection
-              className="md:px-4 bg-secondary/20 md:bg-transparent"
+              className="md:pl-4 bg-secondary/20 md:bg-transparent"
               {...CEREMONIES[1]}
             />
           </div>
