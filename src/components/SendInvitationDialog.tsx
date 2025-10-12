@@ -71,9 +71,8 @@ export function SendInvitationDialog() {
                   onClick={async () => {
                     console.log("here");
                     const vals = form.getValues();
-                    console.log(vals);
-                    await form.trigger();  // Manually triggers form or input validation
-                    if (form.formState.isValid) {
+                    await form.trigger();
+                    if (vals.name) {
                       await onSubmit(vals);
                     }
                       // if (form.formState.isValid) onSubmit(); // Call the `onSubmit` function if the form is validated

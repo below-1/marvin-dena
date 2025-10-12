@@ -61,6 +61,7 @@ export function SendHistoriesList(props: SendHistoriesListProps) {
         }}
         onAction={() => {
           onRemoveInvitation(deletePayload.id)
+          deletePayload.hide()
         }}
       />
 
@@ -98,7 +99,7 @@ export function SendHistoriesList(props: SendHistoriesListProps) {
 }
 
 type RemoveDialogProps = {
-  onAction: (id: number) => any;
+  onAction: () => any;
   show: boolean;
   onClose: () => void;
 }
@@ -119,6 +120,7 @@ function RemoveDialog({ onAction, show, onClose }: RemoveDialogProps) {
             onClick={onClose}
           >Batalkan</AlertDialogCancel>
           <AlertDialogAction
+            onClick={() => onAction()}
           >Hapus</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
