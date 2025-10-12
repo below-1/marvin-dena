@@ -5,6 +5,8 @@ import { TypingAnimation } from "./ui/typing-animation"
 import { BlurFade } from "./ui/blur-fade"
 import { Button } from "./ui/button"
 import { TextAnimate } from "./ui/text-animate"
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
+import { CeremonySection } from "./CeremonySection"
 
 const CEREMONIES = [
   {
@@ -27,14 +29,8 @@ const CEREMONIES = [
 
 export function InvitationSection() {
   return (
-    <section 
-      id="InvitationSection" 
-      className={twMerge(
-        kurale.className,
-        "max-w-screen h-auto md:h-screen bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
-      )}
-    >
-      <div className="h-auto md:h-1/3 py-32 pb-16 md:py-0 px-8 md:px-0 font-sans max-w-6xl mx-auto flex flex-col justify-center items-center gap-4">
+    <>
+      <div className="h-auto md:h-92 py-32 pb-16 md:py-0 px-8 lg:px-0 font-sans max-w-6xl mx-auto flex flex-col justify-center items-center gap-4">
 
         <div className="self-start flex justify-start">
           <Image
@@ -48,25 +44,30 @@ export function InvitationSection() {
         <p className="text-neutral-500 text-start text-base md:text-xl tracking-tight">Dengan mengucap rasa syukur dan terimakasih atas berkat Tuhan, <br/>Perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan putra-putri kami yang akan dilaksanakan pada:</p>
 
       </div>
-      {/* <div className="hidden md:grid grid-cols-2">
-        <div className="grid justify-center items-center">
-          <p className="text-2xl text-primary">Pemberkatan</p>
-        </div>
-        <div className="grid justify-center items-center">
-          <p className="text-2xl text-primary">Resepsi</p>
-        </div>
-      </div> */}
+      <section 
+        id="InvitationSection" 
+        className={twMerge(
+          kurale.className,
+          "relative max-w-screen h-[calc(100vh*1.4)] md:h-150 bg-neutral-100 text-neutral-500 flex flex-col items-center justify-center"
+        )}
+      >
+        {/* <div className="hidden md:grid grid-cols-2">
+          <div className="grid justify-center items-center">
+            <p className="text-2xl text-primary">Pemberkatan</p>
+          </div>
+          <div className="grid justify-center items-center">
+            <p className="text-2xl text-primary">Resepsi</p>
+          </div>
+        </div> */}
 
-      <div className="relative h-screen md:h-2/3 text-neutral-700 w-full grid md:grid-cols-2 divide-y md:divide-y-0">
         <div 
-          className="hidden md:block bg-secondary/20"
+          className="hidden md:block absolute left-0 bottom-0 top-0 right-1/2 bg-secondary/20"
         >
         </div>
         <div 
-          className="hidden md:block bg-secondary/10"
+          className="hidden md:block absolute right-0 bottom-0 top-0 left-1/2 bg-secondary/10"
         >
         </div>
-
         <div className="absolute inset-0 flex md:items-center md:justify-center">
           <div className="w-6xl grid md:grid-cols-2">
             <CeremonySection
@@ -80,57 +81,8 @@ export function InvitationSection() {
             />
           </div>
         </div>
-
-
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
-type Props = {
-  title: string;
-  dateDisplay: string;
-  timeDisplay: string;
-  placeDisplay: string;
-  address: string;
-  addressLink: string;
-  className?: string;
-}
-
-function CeremonySection(props: Props) {
-  return (
-    <div 
-      className={twMerge(
-        "bg-transparent px-8 md:px-0 py-8 grid content-center",
-        props.className
-      )}
-    >
-      <div className="max-w-96 flex flex-col">
-        <TypingAnimation className="text-4xl leading-12 tracking-wider mb-6" startOnView >
-          {props.title}
-        </TypingAnimation>
-
-        <div className="font-mono text-lg font-bold text-neutral-600 mb-8">
-          <TextAnimate once delay={0.4}>{props.dateDisplay}</TextAnimate>
-          <TextAnimate once delay={0.6}>{props.timeDisplay}</TextAnimate>
-        </div>
-        <p className="mb-4 text-neutral-400 font-bold font-mono text-sm tracking-widest uppercase">Bertempat Di:</p>
-        <TextAnimate once className="font-mono font-bold text-neutral-500 mb-1" delay={0.4}>{props.placeDisplay}</TextAnimate>
-        <TextAnimate once className="font-mono text-xs text-neutral-600" delay={0.6}>{props.placeDisplay}</TextAnimate>
-
-        <BlurFade inView delay={0.8}>
-          <div className="flex gap-4 my-8">
-            <Button variant="secondary" size="sm">Save The Date</Button>
-            <Button asChild variant="secondary" size="sm">
-              <a href={props.addressLink} target="_blank">
-                Open Map
-              </a>
-            </Button>
-          </div>
-        </BlurFade>
-
-
-      </div>
-    </div>
-  )
-}
