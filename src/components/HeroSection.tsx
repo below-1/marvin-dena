@@ -15,8 +15,11 @@ import { useEffect, useMemo, useState } from "react";
 import { useInterval } from "usehooks-ts";
 import { SpinningText } from "./ui/spinning-text";
 
-export function HeroSection() {
+export function HeroSection({
+  name
+}: { name: string }) {
   const [activeImage, setActiveImage] = useState(1)
+  const invitationName = useMemo(() => `Kepada ${name}`, [name])
   const [images, setImages] = useState([
     { id: 1, path: "/images/md-5.jpg" },
     { id: 2, path: "/images/md-6.jpg" },
@@ -65,13 +68,13 @@ export function HeroSection() {
       </AnimatePresence>
 
       <div 
-        className="absolute inset-0 z-30 from-[rgba(23,41,96,0.1)] to-[rgba(23,41,96,1)] bg-gradient-to-b"
+        className="absolute inset-0 z-30 from-[rgba(0,0,0,0.5)] via-[rgba(0,0,0,0.1)] to-[rgba(0,0,0,1)] bg-gradient-to-b"
         // className="absolute inset-0 z-30 bg-primary/70 backdrop-blur-xs"
       >
 
       </div>
 
-      <div className="absolute  z-50 rotate-z-90 -translate-x-12 translate-y-[calc(100vh/2)] text-white font-mono font-black text-xl tracking-widest">15.10.2025</div>
+      <div className="absolute  z-50 rotate-z-90 -translate-x-[calc(100vw/12)] sm:translate-x-[calc(100vw/22)] translate-y-[calc(100vh/2)] text-white font-mono font-black text-3xl tracking-widest">15.10.2025</div>
 
       <div
         className={twMerge(
@@ -84,15 +87,15 @@ export function HeroSection() {
         >
           <SpinningText 
             duration={50} 
-            className="text-white text-xs font-black font-mono my-6 -translate-x-12"
+            className="text-white text-base font-black font-mono my-6 -translate-x-12 md:-translate-x-32"
           >
             The Wedding Of
           </SpinningText>
           <div
-            className="flex flex-col font-mono font-black text-white text-6xl md:text-8xl"
+            className="absoolute translate-x-[calc(100vw/16)] flex flex-col font-mono font-black text-secondary text-6xl md:text-8xl"
           >
-            <h1>Marvin</h1>
-            <h1>&Dena</h1>
+            <h1 className="text-shadow-sm text-shadow-black">Marvin</h1>
+            <h1 className="text-shadow-sm text-shadow-black">&Dena</h1>
           </div>
         </div>
 
@@ -101,12 +104,12 @@ export function HeroSection() {
           className="grow self-start flex"
         >
           <div 
-            className="relative -z-10 scale-125 px-0.5 bg-secondary/80 h-full"
+            className="relative -z-10 scale-110 sm:scale-125 px-1 bg-secondary/80 h-full translate-x-[calc(100vw/12)] sm:translate-x-[calc(100vw/15)]"
           ></div>
         </div>
 
-        <div className="flex items-center justify-center flex-col">
-          <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>Kepada Aristop Solle</TypingAnimation>
+        <div className="flex items-center justify-center flex-col mb-2 sm:mb-12">
+          <TypingAnimation className="text-foreground text-2xl md:text-4xl text-center" delay={1200} duration={50} startOnView={true}>{invitationName}</TypingAnimation>
           <BlurFade 
             delay={2} 
             duration={1}

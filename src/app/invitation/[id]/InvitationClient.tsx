@@ -35,7 +35,7 @@ export default function InvitationClient({
       {isOpen && (
         <>
           {/* Hero */}
-          <HeroSection />
+          <HeroSection name={name} />
 
           {/* Mempelai */}
           <MempelaiSection />
