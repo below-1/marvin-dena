@@ -50,7 +50,7 @@ export async function sendInvitation(formData: FormData) {
   const namaEncoded = encodeURIComponent( nama );
   const invitationUrl = `${baseURL}invitation/${token}`
   const message = getWhatsappMessage(invitationUrl, nama);
-  const whatsappUrl = `https://wa.me/?text=${message}`
+  const whatsappUrl = `https://api.whatsapp.com/send/?text=${message}`
 
   const rowInput = {
     ...payload,
