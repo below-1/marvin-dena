@@ -23,7 +23,7 @@ export const metadata = {
     siteName: 'Web of Marvin & Dena',
     images: [
       {
-        url: 'https://marvin-dena.vercel.app/images/md-12.webp', // Must be an absolute URL or relative to metadataBase
+        url: 'https://marvin-dena.vercel.app/images/og-preview.jpg', // Must be an absolute URL or relative to metadataBase
         width: 3008,
         height: 4512,
         alt: 'Marvin & Dena',
@@ -37,7 +37,7 @@ export const metadata = {
     title: 'Web of Marvin & Dena',
     description: 'Pernikahan Marvin Sole & Dena Nenohalan.',
     creator: '@myawesomesite',
-    images: ['https://marvin-dena.vercel.app/images/md-12.webp'], // Must be an absolute URL or relative to metadataBase
+    images: ['https://marvin-dena.vercel.app/images/og-preview.jpg'], // Must be an absolute URL or relative to metadataBase
   },
 };
 
