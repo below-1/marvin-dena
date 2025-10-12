@@ -1,8 +1,10 @@
 import { db } from "@/db/drizzle";
 import { type IKomentarInput, komentarTable } from "@/db/schema";
+import { desc } from "drizzle-orm";
 
 export async function loadKomentars() {
-  const results = await db.select().from(komentarTable);
+  const results = await db.select().from(komentarTable)
+    .orderBy(desc(komentarTable.createdAt));
   return results;
 }
 
