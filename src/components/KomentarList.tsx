@@ -12,7 +12,7 @@ export function KomentarList({
   messages
 }: KomentarListProps) {
   return (
-    <div className="flex flex-col divide-y">
+    <div className="max-h-200 overflow-y-scroll flex flex-col divide-y">
       {messages.map(item => (
         <KomentarItem
           key={item.id}
